@@ -69,6 +69,7 @@ public class OdooSyncAdapter extends AbstractThreadedSyncAdapter {
 
         OdooResult result = odoo.searchRead(syncModel.getModelName(), fields, domain, 0, 0, null);
         if (result != null) {
+            Log.e(">>>>>>>>>>>>>>", String.valueOf(result));
             for (OdooRecord record : result.getRecords()) {
                 if (record != null) {
                     ContentValues values = new ContentValues();

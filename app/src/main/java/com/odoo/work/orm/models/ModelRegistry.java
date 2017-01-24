@@ -31,6 +31,7 @@ public class ModelRegistry {
         model.put("res.partner", new ResPartner(context));
         model.put("res.country", new ResCountry(context));
         model.put("res.country.state", new ResState(context));
+        model.put("project.project", new Project(context));
         return model;
     }
 }

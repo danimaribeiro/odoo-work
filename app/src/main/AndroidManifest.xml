@@ -76,6 +76,26 @@
             android:label="@string/partner_sync"
             android:syncable="true" />
 
+        <!--Project sync service and provider-->
+        <service
+            android:name=".orm.models.services.ProjectService"
+            android:exported="true"
+            android:process=":sync">`
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/project_adapter" />
+        </service>
+
+        <provider
+            android:name=".orm.models.provider.ProjectProvider"
+            android:authorities="com.odoo.work.orm.model.project"
+            android:exported="true"
+            android:label="@string/project_sync"
+            android:syncable="true" />
+
         <activity android:name=".HomeActivity" />
     </application>
 

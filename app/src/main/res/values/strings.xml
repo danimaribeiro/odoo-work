@@ -20,4 +20,9 @@
     <!--partner authority-->
     <string name="partner_authority">com.odoo.work.orm.model.partner</string>
     <string name="partner_sync">Partner</string>
+
+
+    <!--Project Authority-->
+    <string name="project_authority">com.odoo.work.orm.model.project</string>
+    <string name="project_sync">Projects</string>
 </resources>
