@@ -13,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -36,14 +32,15 @@
                 android:resource="@xml/authenticator" />
         </service>
 
-        <!--Sync service and provider-->
+        <!-- Sync service and provider -->
         <service
             android:name=".sync.OdooSyncService"
             android:exported="true"
-            android:process=":sync">`
+            android:process=":sync">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
+
             <meta-data
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/sync_adapter" />
@@ -55,15 +52,15 @@
             android:exported="true"
             android:syncable="true" />
 
-
-        <!--Partner sync service and provider-->
+        <!-- Partner sync service and provider -->
         <service
             android:name=".orm.models.services.ResPartnerService"
             android:exported="true"
-            android:process=":sync">`
+            android:process=":sync_partner">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
+
             <meta-data
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/partner_sync_adapter" />
@@ -76,27 +73,41 @@
             android:label="@string/partner_sync"
             android:syncable="true" />
 
-        <!--Project sync service and provider-->
+        <!-- Project sync service and provider -->
         <service
             android:name=".orm.models.services.ProjectService"
             android:exported="true"
-            android:process=":sync">`
+            android:process=":sync_project">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
+
             <meta-data
                 android:name="android.content.SyncAdapter"
-                android:resource="@xml/project_adapter" />
+                android:resource="@xml/project_sync_adapter" />
         </service>
 
         <provider
             android:name=".orm.models.provider.ProjectProvider"
-            android:authorities="com.odoo.work.orm.model.project"
+            android:authorities="@string/project_authority"
             android:exported="true"
             android:label="@string/project_sync"
             android:syncable="true" />
 
         <activity android:name=".HomeActivity" />
+        <activity
+            android:name=".TeamName"
+            android:theme="@style/AppTheme.LoginSignup" />
+        <activity android:name=".TeamAddMembers"
+
+            android:theme="@style/AppTheme.ActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Add_by_email"  android:theme="@style/AppTheme.ActionBar"/>
     </application>
 
 </manifest>
